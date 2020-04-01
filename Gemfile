@@ -34,6 +34,9 @@ gem 'devise'
 # Storage upload solution
 gem 'cloudinary'
 
+# Form helper
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
