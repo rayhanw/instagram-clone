@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @comments = @post.comments.includes(user: [:avatar_attachment])
+    @new_comment = Comment.new
   end
 
   def create
@@ -11,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
 
     if @comment.save
-      redirect_to root_path
+      redirect_to post_comments_path(@post)
     else
       render 'pages/home'
     end
