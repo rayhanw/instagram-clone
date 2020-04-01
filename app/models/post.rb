@@ -12,4 +12,8 @@ class Post < ApplicationRecord
   def find_like(attributes = {})
     likes.find_by(attributes)
   end
+
+  def any_likes?
+    likes.any?
+  end
 end
