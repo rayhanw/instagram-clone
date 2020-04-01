@@ -16,4 +16,16 @@ class Post < ApplicationRecord
   def any_likes?
     likes.any?
   end
+
+  def photos_attached?
+    photos.attached?
+  end
+
+  def first_photo
+    @first_photo ||= if photos_attached?
+                      photos[0].key
+                    else
+                      "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+                    end
+  end
 end
