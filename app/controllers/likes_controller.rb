@@ -11,4 +11,12 @@ class LikesController < ApplicationController
       render 'pages/home'
     end
   end
+
+  def destroy
+    @like = Like.find(params[:id])
+
+    if @like.destroy
+      redirect_to root_path
+    end
+  end
 end
