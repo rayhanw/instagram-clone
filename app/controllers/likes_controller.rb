@@ -6,7 +6,10 @@ class LikesController < ApplicationController
     @like.user = current_user
 
     if @like.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       render 'pages/home'
     end
@@ -16,7 +19,10 @@ class LikesController < ApplicationController
     @like = Like.find(params[:id])
 
     if @like.destroy
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     end
   end
 end
