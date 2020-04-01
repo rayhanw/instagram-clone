@@ -28,6 +28,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
