@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'explore', to: 'pages#explore', as: :explore
   get 'account', to: 'pages#account', as: :account
 
-  resources :posts, except: %i[index]
+  resources :posts, except: %i[index] do
+    resources :likes, only: %i[create]
+  end
+
   resources :users, only: %i[show], param: :username
 end
