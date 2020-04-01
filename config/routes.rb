@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'account', to: 'pages#account', as: :account
 
   resources :posts, except: %i[index]
+  resources :users, only: %i[show], param: :username
 end
