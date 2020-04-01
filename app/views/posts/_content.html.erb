@@ -14,7 +14,7 @@
   </header>
 
   <!-- Image -->
-  <div class="w-full" style="height: 300px; background-size: cover; background-image: url('https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')"></div>
+  <div class="w-full" style="height: 300px; background-size: cover; background-image: url('<%= cl_image_path post.first_photo, crop: :fill %> ')"></div>
 
   <!-- CTAs -->
   <div class="mx-4">
