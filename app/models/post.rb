@@ -3,4 +3,8 @@ class Post < ApplicationRecord
   has_many :likes
 
   has_many_attached :photos
+
+  def liked_by_user?(user)
+    likes.map(&:user).include? user
+  end
 end
