@@ -1,35 +1,3 @@
 <% @presenter.all.each do |post| %>
-  <article class="mb-6">
-    <header class="flex p-3 justify-between items-center">
-      <div class="flex cursor-pointer items-center">
-        <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar.key, alttext: "avatar", class: "avatar-small" %>
-        <% else %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
-        <% end %>
-
-        <%= link_to post.user.username, user_path(post.user), class: "ml-3 font-bold" %>
-      </div>
-      <i class="material-icons cursor-pointer">more_horiz</i>
-    </header>
-    <div class="w-full" style="height: 300px; background-size: cover; background-image: url('https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')"></div>
-
-    <section class="flex p-4">
-      <%= link_to "#", class: "mr-4" do %>
-        <i class="material-icons">favorite</i>
-      <% end %>
-
-      <%= link_to "#", class: "mr-4" do %>
-        <i class="material-icons">comment</i>
-      <% end %>
-
-      <%= link_to "#", class: "mr-4" do %>
-        <i class="material-icons">send</i>
-      <% end %>
-
-      <%= link_to "#" do %>
-        <i class="material-icons">bookmark_bordered</i>
-      <% end %>
-    </section>
-  </article>
+  <%= render partial: 'posts/content', locals: { post: post } %>
 <% end %>
