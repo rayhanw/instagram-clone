@@ -1,0 +1,27 @@
+<ul class="flex justify-between fixed bottom-0 w-full px-6 py-2 border-t-2">
+  <li>
+    <%= link_to root_path, class: "text-black" do %>
+      <i class="material-icons">home</i>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to explore_path, class: "text-black" do %>
+      <i class="material-icons">search</i>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_post_path, class: "text-black" do %>
+      <i class="material-icons">add_box</i>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "#", class: "text-black" do %>
+      <i class="material-icons">favorite</i>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to account_path, class: "text-black" do %>
+      <i class="material-icons">person</i>
+    <% end %>
+  </li>
+</ul>
