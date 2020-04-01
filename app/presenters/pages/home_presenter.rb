@@ -7,7 +7,7 @@ module Pages
     end
 
     def all
-      @all ||= scope.includes(:user)
+      @all ||= scope.includes(user: [:avatar_attachment])
     end
   end
 end
