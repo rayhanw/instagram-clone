@@ -19,15 +19,16 @@
   <!-- CTAs -->
   <div class="mx-4">
     <section class="flex py-4">
-      <% if post.liked_by_user? current_user %>
-        <%= link_to like_path(post.find_like(user: current_user, post: post)), method: :delete, class: "mr-4" do %>
-          <i class="material-icons text-red-600">favorite</i>
+      <div id="like-cta">
+        <% if post.liked_by_user? current_user %>
+          <!-- Action to DESTROY like -->
+          <% like ||= post.find_like(user: current_user, post: post) %>
+          <%= render partial: 'likes/destroy', locals: { like: like } %>
+        <% else %>
+          <!-- Action to CREATE like -->
+          <%= render partial: 'likes/create', locals: { post: post } %>
         <% end %>
-      <% else %>
-        <%= link_to post_likes_path(post), method: :post, class: "mr-4" do %>
-          <i class="material-icons">favorite_border</i>
-        <% end %>
-      <% end %>
+      </div>
 
       <%= link_to "#", class: "mr-4" do %>
         <i class="material-icons">comment</i>
