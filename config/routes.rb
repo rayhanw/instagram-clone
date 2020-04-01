@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create]
   end
 
+  resources :likes, only: %i[destroy]
+
   resources :users, only: %i[show], param: :username
 end
