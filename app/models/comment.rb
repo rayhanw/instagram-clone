@@ -3,4 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :user
 
   validates :user, uniqueness: { scope: :post }
+  validates :content, presence: true
 end
