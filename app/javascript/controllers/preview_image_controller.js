@@ -3,10 +3,6 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["image"];
 
-  connect() {
-    console.log("Controller connected");
-  }
-
   preview = event => {
     const { files } = event.target;
     if (files && files[0]) {
