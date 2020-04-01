@@ -1,0 +1,13 @@
+<%= simple_form_for [post, comment], html: { class: "border-t-2 py-3" } do |f| %>
+  <div class="bg-white flex items-center justify-between">
+    <% if current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, alttext: "avatar", class: "avatar-small" %>
+    <% else %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
+    <% end %>
+
+    <%= f.input :content, label: false, input_html: { placeholder: "Add a comment...", rows: 1, class: "w-full" }, wrapper_html: { class: "w-80 px-3 flex-grow" } %>
+
+    <%= f.submit "Post", class: "bg-white text-blue-400" %>
+  </div>
+<% end %>

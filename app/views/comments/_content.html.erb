@@ -1,0 +1,18 @@
+<div class="my-3">
+  <div class="mb-3 flex items-center">
+    <% if comment.user.avatar.attached? %>
+      <%= cl_image_tag comment.user.avatar.key, alttext: "avatar", class: "avatar-small" %>
+    <% else %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
+    <% end %>
+
+    <div class="ml-3">
+      <p class="text-xs"><span class="font-bold"><%= comment.user.username %></span> <%= comment.content %></p>
+      <span class="text-xs text-gray-400"><%= time_ago_in_words(comment.updated_at) %> ago</span>
+    </div>
+  </div>
+
+  <% if first %>
+    <div class="border"></div>
+  <% end %>
+</div>

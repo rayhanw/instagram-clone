@@ -1,2 +1,6 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<div class="mx-3 mt-4">
+  <% @comments.each do |comment| %>
+    <%= render partial: 'content', locals: { comment: comment, first: @comments[0] == comment } %>
+  <% end %>
+  <%= render partial: 'form', locals: { post: @post, comment: @new_comment } %>
+</div>
