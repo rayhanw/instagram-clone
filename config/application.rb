@@ -30,6 +30,9 @@ module InstagramClone
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.generators do |g|
+      g.factory_bot suffix: "factory"
+    end
     config.generators.system_tests = nil
   end
 end
