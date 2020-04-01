@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    @comments = @post.comments.includes(user: [:avatar_attachment])
   end
 
   def create
