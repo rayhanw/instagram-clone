@@ -7,12 +7,10 @@ Rails.application.routes.draw do
 
   resources :posts, except: %i[index] do
     resources :likes, only: %i[create]
-    resources :comments, only: %i[create]
+    resources :comments, only: %i[index create]
   end
 
   resources :likes, only: %i[destroy]
 
   resources :users, only: %i[show], param: :username
-
-  resources :comments, only: %i[index]
 end
