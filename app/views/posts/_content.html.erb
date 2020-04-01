@@ -60,5 +60,10 @@
       <% end %>
       <%= link_to "View all #{pluralize(post.comments.count, "comment")}", post_comments_path(post), class: "text-gray-400" %>
     </section>
+
+    <!-- Time ago -->
+    <section>
+      <p class="text-gray-400 text-sm mt-2"><%= time_ago_in_words(post.created_at) %> ago</p>
+    </section>
   </div>
 </article>
