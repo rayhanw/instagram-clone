@@ -32,6 +32,13 @@ module InstagramClone
     # Don't generate system test files.
     config.generators do |g|
       g.factory_bot suffix: "factory"
+      g.stylesheets false
+      g.test_framework :rspec,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        request_specs: false,
+        controller_specs: false
     end
     config.generators.system_tests = nil
   end
