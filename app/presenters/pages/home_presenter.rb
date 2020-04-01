@@ -7,7 +7,7 @@ module Pages
     end
 
     def all
-      @all ||= scope.all
+      @all ||= scope.includes(:user)
     end
   end
 end
