@@ -1,0 +1,7 @@
+function changeContent(innerHTML) {
+  const likeWrapper = document.getElementById('like-cta-<%= @post.id %>');
+
+  likeWrapper.innerHTML = innerHTML
+}
+
+changeContent("<%= j render 'destroy', like: @like %>")

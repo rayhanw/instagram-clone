@@ -1,5 +1,5 @@
 function changeContent(innerHTML) {
-  const likeWrapper = document.getElementById('like-cta');
+  const likeWrapper = document.getElementById('like-cta-<%= @like.post.id %>');
 
   likeWrapper.innerHTML = innerHTML
 }
