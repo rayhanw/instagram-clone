@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many :posts
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
 end
