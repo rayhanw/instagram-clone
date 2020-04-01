@@ -31,17 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Authentication solution
 gem 'devise'
 
-group :test do
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'database_cleaner-active_record'
-end
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
