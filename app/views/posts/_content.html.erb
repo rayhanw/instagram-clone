@@ -43,7 +43,9 @@
 
   <!-- Number of likes -->
   <section>
-
+    <% if post.any_likes? %>
+      <p class="font-bold"><%= pluralize(post.likes.count, "like") %></p>
+    <% end %>
   </section>
 
   <!-- Comment snippets -->
@@ -54,6 +56,6 @@
         <%= comment.content[0..35]... %>
       </p>
     <% end %>
-    <%= link_to "View all #{pluralize(post.comments.count, "comments")}", post_comments_path(post), class: "text-gray-400" %>
+    <%= link_to "View all #{pluralize(post.comments.count, "comment")}", post_comments_path(post), class: "text-gray-400" %>
   </section>
 </article>
