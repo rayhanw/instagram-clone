@@ -7,4 +7,8 @@ class Post < ApplicationRecord
   def liked_by_user?(user)
     likes.map(&:user).include? user
   end
+
+  def find_like(attributes = {})
+    likes.find_by(attributes)
+  end
 end
