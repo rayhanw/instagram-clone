@@ -15,6 +15,7 @@
   </head>
 
   <body data-controller="scroll-top">
+    <%= render partial: 'shared/root_top_nav' if at_root? %>
     <div class="container h-screen-bottom-nav overflow-y-scroll" data-target="scroll-top.container">
       <%= yield %>
     </div>
