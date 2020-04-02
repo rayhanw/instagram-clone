@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
 
   describe "#photos" do
     it 'should be invalid if it does not have a photo' do
+      post.photos = nil
       expect(post.valid?).to be false
     end
 
