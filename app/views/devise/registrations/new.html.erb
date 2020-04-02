@@ -1,5 +1,6 @@
 <div class="px-4 mb-4">
   <h2 class="text-2xl text-center my-4">Sign up</h2>
+
   <%= simple_form_for resource, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", data: { controller: "preview-image" } } do |f| %>
     <div>
       <%= f.input :avatar,
@@ -67,7 +68,7 @@
                 wrapper_html: { class: "mb-12" },
                 placeholder: "***********" %>
 
-    <%= f.submit "Create account", class: "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-full" %>
+    <%= f.submit "Create account", class: "duration-200 shadow bg-purple-darker hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-full" %>
 
     <%= render "devise/shared/error_messages", resource: resource %>
   <% end %>
