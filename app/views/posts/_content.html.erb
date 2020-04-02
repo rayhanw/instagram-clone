@@ -3,7 +3,7 @@
   <header class="flex p-3 justify-between items-center">
     <div class="flex cursor-pointer items-center">
       <% if post.user.avatar.attached? %>
-        <%= cl_image_tag post.user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "avatar-small" %>
+        <%= cl_image_tag post.user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "avatar-small object-cover" %>
       <% else %>
         <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
       <% end %>
