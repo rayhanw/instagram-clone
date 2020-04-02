@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="container h-screen-bottom-nav overflow-y-scroll">
+  <body data-controller="scroll-top">
+    <div class="container h-screen-bottom-nav overflow-y-scroll" data-target="scroll-top.container">
       <%= yield %>
     </div>
     <%= render partial: 'shared/bottom_nav' %>
