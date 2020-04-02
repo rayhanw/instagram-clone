@@ -53,7 +53,7 @@
     <!-- Comment snippets -->
     <section>
       <% if post.any_comments? %>
-        <% post.first_and_last_three_comments.each do |comment| %>
+        <% post.first_and_last_comments.each do |comment| %>
           <p>
             <span class="font-bold"><%= comment.user.username %></span>&nbsp;
             <%= comment.content[0..35]... %>
