@@ -37,7 +37,11 @@ gem 'cloudinary'
 # Form helper
 gem 'simple_form'
 
+# SVG helper
 gem 'inline_svg'
+
+# Pagination gem
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
