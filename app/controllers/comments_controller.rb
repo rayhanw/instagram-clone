@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
     @comment.post = @post
 
     if @comment.save
-      redirect_to post_comments_path(@post)
+      CommentsChannel.broadcast_to(@post, render_to_string(partial: "content", locals: { comment: @comment, first: @post.first_comment?(@comment) }))
+      redirect_to post_comments_path(@post, anchor: "comment-#{@comment.id}")
     else
       render 'pages/home'
     end
