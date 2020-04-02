@@ -11,3 +11,7 @@ require("channels");
 import "../stylesheets/application.scss";
 
 import "controllers";
+
+import initServiceWorker from "./plugins/init_serviceworker";
+
+initServiceWorker();
