@@ -5,6 +5,9 @@ class Post < ApplicationRecord
 
   has_many_attached :photos
 
+  validates :photos, presence: true
+  validate :at_least_one_photo
+
   def liked_by_user?(user)
     likes.map(&:user).include? user
   end
@@ -27,5 +30,13 @@ class Post < ApplicationRecord
                     else
                       "https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
                     end
+  end
+
+  private
+
+  def at_least_one_photo
+    if photos.length.zero?
+      errors.add(:photos, 'must have at least one photo')
+    end
   end
 end
