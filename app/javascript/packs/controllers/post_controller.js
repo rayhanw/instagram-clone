@@ -11,7 +11,7 @@ const postController = {
     this.moreBtn.setAttribute("href", url.search);
   },
   attachInfiniteScroll() {
-    if (this.moreBtn) {
+    if (this.moreBtn && document.location.pathname === "/") {
       this.container.addEventListener("scroll", () => {
         if (
           this.container.scrollTop + this.container.clientHeight >=
