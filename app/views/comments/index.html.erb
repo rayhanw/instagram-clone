@@ -1,3 +1,5 @@
+<%= render partial: 'shared/top_nav' %>
+
 <div class="mx-3 mt-4">
   <% @comments.each do |comment| %>
     <%= render partial: 'content', locals: { comment: comment, first: @comments[0] == comment } %>
