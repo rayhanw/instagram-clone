@@ -21,7 +21,11 @@
   </li>
   <li>
     <%= link_to account_path, class: "text-black" do %>
-      <i class="material-icons">person</i>
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
+      <% else %>
+        <i class="material-icons">person</i>
+      <% end %>
     <% end %>
   </li>
 </ul>
