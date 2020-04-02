@@ -32,6 +32,10 @@ class Post < ApplicationRecord
                     end
   end
 
+  def first_comment?(comment)
+    comments.first == comment
+  end
+
   private
 
   def at_least_one_photo
