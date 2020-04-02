@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
-    # @comments = @post.comments.includes(user: [avatar_attachment: :blob])
-    # @new_comment = Comment.new
     @presenter = present(@post)
   end
 
