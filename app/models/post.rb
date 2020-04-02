@@ -24,11 +24,16 @@ class Post < ApplicationRecord
     comments.any?
   end
 
-  def first_and_last_three_comments
-    @first ||= comments.first
-    @last_three ||= comments.last(3)
+  def first_comment
+    @first_comment ||= comments.first
+  end
 
-    @first_and_last_three_comments ||= [@first] + @last_three
+  def last_comments
+    @last_comments ||= comments.last(2)
+  end
+
+  def first_and_last_comments
+    @first_and_last__comments ||= [*[first_comment] + last_comments].uniq.compact
   end
 
   def photos_attached?
