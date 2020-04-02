@@ -52,11 +52,15 @@
 
     <!-- Comment snippets -->
     <section>
-      <% post.comments.each do |comment| %>
-        <p>
-          <span class="font-bold"><%= comment.user.username %></span>&nbsp;
-          <%= comment.content[0..35]... %>
-        </p>
+      <% if post.any_comments? %>
+        <% post.first_and_last_three_comments.each do |comment| %>
+          <p>
+            <span class="font-bold"><%= comment.user.username %></span>&nbsp;
+            <%= comment.content[0..35]... %>
+          </p>
+        <% end %>
+      <% else %>
+        <p class="italic text-sm">Be the first to leave a comment!</p>
       <% end %>
       <%= link_to "View all #{pluralize(post.comments.count, "comment")}", post_comments_path(post), class: "text-gray-400" %>
     </section>
