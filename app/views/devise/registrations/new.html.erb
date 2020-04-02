@@ -1,29 +1,62 @@
-<h2>Sign up</h2>
+<div class="px-4 mb-4">
+  <h2 class="text-2xl text-center my-4">Sign up</h2>
+  <%= simple_form_for resource, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" } do |f| %>
+    <%= f.input :email,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "bob@example.com" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.input :username,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "bob347",
+                hint: "Letters and numbers only!",
+                hint_html: { class: "text-yellow-500 text-xs italic" },
+                required: false %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.input :name,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "Bob the Builder",
+                required: false %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <%= f.input :website,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "https://bob-website.com" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= f.input :bio,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "Hi there! I'm Bob the Builder" %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <%= f.input :password,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-4" },
+                error_html: { class: "text-red-500 text-xs italic" },
+                placeholder: "***********" %>
 
-<%= render "devise/shared/links" %>
+    <%= f.input :password_confirmation,
+                input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
+                label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                wrapper_html: { class: "mb-12" },
+                placeholder: "***********" %>
+
+    <%= f.submit "Create account", class: "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-full" %>
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
