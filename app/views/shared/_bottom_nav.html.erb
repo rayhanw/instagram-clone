@@ -1,6 +1,6 @@
 <ul class="flex justify-between fixed bottom-0 w-full px-6 py-2 border-t-2 bg-white bottom-nav">
   <li>
-    <%= link_to root_path, class: "text-black" do %>
+    <%= link_to at_root? ? "#" : root_path, class: "text-black", data: { action: at_root? } do %>
       <i class="material-icons">home</i>
     <% end %>
   </li>
