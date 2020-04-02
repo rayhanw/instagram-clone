@@ -1,6 +1,20 @@
 <div class="px-4 mb-4">
   <h2 class="text-2xl text-center my-4">Sign up</h2>
-  <%= simple_form_for resource, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" } do |f| %>
+  <%= simple_form_for resource, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", data: { controller: "preview-image" } } do |f| %>
+    <div>
+      <%= f.input :avatar,
+                  as: :file,
+                  input_html: { accept: "image/*", capture: "user", class: "hidden" },
+                  label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
+                  wrapper_html: { class: "mb-4" },
+                  error_html: { class: "text-red-500 text-xs italic" } %>
+
+      <div class="flex flex-col items-center justify-center">
+        <%= image_tag "avatar.png", alt: "avatar", class: "avatar-xl mb-4 object-cover", id: "preview-image", data: { target: "preview-image.image" } %>
+        <input accept="image/*" capture="user" class="file optional" type="file" name="user[avatar]" id="user_avatar" data-action="change->preview-image#preview" />
+      </div>
+    </div>
+
     <%= f.input :email,
                 input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" },
                 label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
