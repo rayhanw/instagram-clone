@@ -20,6 +20,17 @@ class Post < ApplicationRecord
     likes.any?
   end
 
+  def any_comments?
+    comments.any?
+  end
+
+  def first_and_last_three_comments
+    @first ||= comments.first
+    @last_three ||= comments.last(3)
+
+    @first_and_last_three_comments ||= [@first] + @last_three
+  end
+
   def photos_attached?
     photos.attached?
   end
