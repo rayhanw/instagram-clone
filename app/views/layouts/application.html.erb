@@ -8,6 +8,17 @@
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
 
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
+    <%= render partial: 'shared/ios_pwa_links' %>
+
+    <%= favicon_link_tag image_path 'icons/favicon-32x32.png' %>
+
+    <meta name="msapplication-TileColor" content="#4d4c7d">
+    <meta name="msapplication-TileImage" content="<%= image_path 'icons/ms-icon-144x144.png' %>">
+    <meta name="theme-color" content="#4d4c7d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

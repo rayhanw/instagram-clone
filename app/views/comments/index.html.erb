@@ -2,9 +2,9 @@
 
 <div class="mx-3 mt-4">
   <div id="comments" data-post-id="<%= @post.id %>">
-    <% @comments.each do |comment| %>
-      <%= render partial: 'content', locals: { comment: comment, first: @comments[0] == comment } %>
+    <% @presenter.comments.each do |comment| %>
+      <%= render partial: 'content', locals: { comment: comment, first: @presenter.comments[0] == comment } %>
     <% end %>
   </div>
-  <%= render partial: 'form', locals: { post: @post, comment: @new_comment } %>
+  <%= render partial: 'form', locals: { post: @presenter.post, comment: @presenter.new_comment } %>
 </div>
