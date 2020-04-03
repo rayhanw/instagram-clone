@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Instagram Clone</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
 
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
 
+    <%= render partial: 'shared/meta_tags' %>
     <%= render partial: 'shared/ios_pwa_links' %>
+    <%= render partial: 'shared/splash_screens' %>
 
     <%= favicon_link_tag image_path 'icons/favicon-32x32.png' %>
 
@@ -18,6 +20,7 @@
     <meta name="msapplication-TileImage" content="<%= image_path 'icons/ms-icon-144x144.png' %>">
     <meta name="theme-color" content="#4d4c7d">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable"  content="yes" />
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
