@@ -9,7 +9,7 @@ module ResourcePresenters
     end
 
     def posts
-      @posts ||= user.posts
+      @posts ||= user.posts.with_photo_blobs
     end
 
     def posts_count
