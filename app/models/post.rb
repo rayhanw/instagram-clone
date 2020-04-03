@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   validate :at_least_one_photo
 
   scope :with_photo_blobs, -> { includes(photos_attachments: [:blob]) }
+  scope :sorted_by_date, -> { order(created_at: :DESC) }
 
   def first_photo
     @first_photo ||= photos[0].key
