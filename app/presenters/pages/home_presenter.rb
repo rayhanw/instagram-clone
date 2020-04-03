@@ -8,7 +8,7 @@ module Pages
     end
 
     def all
-      @all ||= scope.with_photo_blobs.includes(:likes, user: [avatar_attachment: [:blob]], comments: [:user]).paginate(page: current_page, per_page: 8).map(&:present)
+      @all ||= scope.with_photo_blobs.includes(:likes, user: [avatar_attachment: [:blob]], comments: [:user]).paginate(page: current_page, per_page: 8)
     end
   end
 end

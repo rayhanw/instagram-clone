@@ -10,8 +10,24 @@ class Post < ApplicationRecord
 
   scope :with_photo_blobs, -> { includes(photos_attachments: [:blob]) }
 
+  def first_photo
+    @first_photo ||= photos[0].key
+  end
+
   def find_like(attributes = {})
     likes.find_by(attributes)
+  end
+
+  def liked_by_user?(user)
+    likes.map(&:user).include? user
+  end
+
+  def any_likes?
+    @any_likes ||= likes.any?
+  end
+
+  def any_comments?
+    @any_comments ||= comments.any?
   end
 
   def first_comment
@@ -20,6 +36,14 @@ class Post < ApplicationRecord
 
   def last_comments
     @last_comments ||= comments.last(2)
+  end
+
+  def first_and_last_comments
+    @first_and_last_comments ||= [*[first_comment] + last_comments].uniq.compact
+  end
+
+  def first_comment?(comment)
+    first_comment == comment
   end
 
   private
