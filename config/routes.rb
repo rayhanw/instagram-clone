@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :likes, only: %i[destroy]
 
   resources :users, only: %i[show], param: :username
+
+  resources :direct_messages, only: %i[index show]
 end
