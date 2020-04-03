@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'explore', to: 'pages#explore', as: :explore
 
   resources :posts, except: %i[index edit update] do
-    resources :likes, only: %i[create]
+    resources :likes, only: %i[index create]
     resources :comments, only: %i[index create]
   end
 
