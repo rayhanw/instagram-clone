@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @presenter = present(Post, @current_page)
 
     if @current_page > 1
-      @posts = Post.includes(:likes, user: [avatar_attachment: [:blob]], comments: [:user], photos_attachments: [:blob]).paginate(page: @current_page, per_page: 8)
+      @posts = Post.with_photo_blobs.sorted_by_date.includes(:likes, user: [avatar_attachment: [:blob]], comments: [:user]).paginate(page: @current_page, per_page: 8)
     end
 
     respond_to do |format|
