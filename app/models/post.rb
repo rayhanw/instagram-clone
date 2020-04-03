@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   validates :photos, presence: true
   validate :at_least_one_photo
 
+  scope :with_photo_blobs, -> { includes(photos_attachments: [:blob]) }
+
   def liked_by_user?(user)
     likes.map(&:user).include? user
   end
