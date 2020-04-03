@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :likes
   has_many :direct_messages
-  # has_many :comments
+  has_many :comments
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
   validates :name, presence: true
