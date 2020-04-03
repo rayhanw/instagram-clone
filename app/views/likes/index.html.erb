@@ -1,0 +1,19 @@
+<%= render partial: 'shared/top_nav', locals: { text: "Likes" } %>
+
+<div class="mx-3 mt-4">
+  <div>
+    <% @presenter.likes.each do |like| %>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <%= render partial: "shared/avatar", locals: { user: like.user, avatar_class: "avatar-large" } %>
+          <%= link_to user_path(like.user.username) do %>
+            <div class="ml-4">
+              <h4 class="font-bold"><%= like.user.username %></h4>
+              <span class="text-gray-700"><%= like.user&.name %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
