@@ -6,7 +6,7 @@
                 required: false,
                 wrapper_html: { class: 'w-full' },
                 label_html: { class: 'italic cursor-pointer inline-block w-full bg-gray-300 hover:bg-gray-400 duration-300 p-4 rounded text-center' }, label: '📷 Choose picture(s)!',
-                input_html: { multiple: true, accept: "image/*", capture: "environment", data: { action: "change->preview-image#preview" }, class: "hidden" } %>
+                input_html: { multiple: true, accept: "image/*", data: { action: "change->preview-image#preview" }, class: "hidden" } %>
   </div>
 
   <img src="" alt="preview-photo" data-target="preview-image.image" class="hidden mb-6" />
