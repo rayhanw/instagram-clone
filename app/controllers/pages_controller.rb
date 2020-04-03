@@ -24,6 +24,6 @@ class PagesController < ApplicationController
   end
 
   def set_back_link
-    session[:back_link] ||= request.url
+    session[:back_link] = request.url
   end
 end
