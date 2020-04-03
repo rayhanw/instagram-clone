@@ -30,9 +30,9 @@
         <i class="material-icons">comment</i>
       <% end %>
 
-      <%= link_to "#", class: "mr-4" do %>
+      <button class="mr-4" data-link="<%= post.present.share_link(request.base_url) %>">
         <i class="material-icons">send</i>
-      <% end %>
+      </button>
 
       <%= link_to "#" do %>
         <i class="material-icons">bookmark_bordered</i>
