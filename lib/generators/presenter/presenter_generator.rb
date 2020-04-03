@@ -15,7 +15,6 @@ class PresenterGenerator < Rails::Generators::Base
     create_file presenter_file_path, "module #{controller_name.camelize}
   class #{action_name.camelize}Presenter < BasePresenter
   end
-end
-    " unless File.exist? presenter_file_path
+end" unless File.exist? presenter_file_path
   end
 end
