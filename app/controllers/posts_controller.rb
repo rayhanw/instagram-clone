@@ -20,13 +20,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
+    @post = Post.find(params[:id])
+
+    if @post.destroy
+      redirect_to root_path, notice: "Post successfully deleted."
+    end
   end
 
   private
