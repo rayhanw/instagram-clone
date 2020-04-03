@@ -16,7 +16,9 @@ class PagesController < ApplicationController
 
   def explore; end
 
-  def account; end
+  def account
+    @presenter = present(current_user)
+  end
 
   private
 
