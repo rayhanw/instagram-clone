@@ -16,10 +16,6 @@ class PagesController < ApplicationController
 
   def explore; end
 
-  def account
-    @presenter = current_user.present
-  end
-
   private
 
   def set_current_page
