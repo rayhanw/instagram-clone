@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_current_page, only: :home
+  before_action :set_back_link, only: :home
 
   def home
     @presenter = present(Post, @current_page)
@@ -20,5 +21,9 @@ class PagesController < ApplicationController
 
   def set_current_page
     @current_page = params[:page]&.to_i || 1
+  end
+
+  def set_back_link
+    session[:back_link] ||= request.url
   end
 end

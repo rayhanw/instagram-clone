@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_back_link, only: :show
+
   def show
     @post = Post.find(params[:id])
   end
@@ -31,5 +33,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:description, photos: [])
+  end
+
+  def set_back_link
+    session[:back_link] ||= request.url
   end
 end
