@@ -27,9 +27,9 @@
   </section>
 
   <section class="mt-4">
-    <h4 class="font-bold leading-tight"><%= @presenter.user.name %></h4>
-    <p class="leading-tight"><%= @presenter.user.bio %></p>
-    <p class="leading-tight"><%= @presenter.user.website %></p>
+    <h4 class="font-bold leading-tight"><%= @presenter.user.name.capitalize %></h4>
+    <p class="leading-tight text-sm"><%= @presenter.user.bio %></p>
+    <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer" %>
   </section>
 </header>
 <main>
