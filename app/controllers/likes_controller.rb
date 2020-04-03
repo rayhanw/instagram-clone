@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
+    @presenter = present(@post.likes)
   end
 
   def create
