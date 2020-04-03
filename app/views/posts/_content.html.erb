@@ -42,7 +42,7 @@
     <!-- Number of likes -->
     <section>
       <% if post.any_likes? %>
-        <p class="font-bold"><%= pluralize(post.likes.count, "like") %></p>
+        <%= link_to pluralize(post.likes.count, "like"), post_likes_path(post), class: "font-bold" %>
       <% end %>
     </section>
 
