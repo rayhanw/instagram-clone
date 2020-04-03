@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   def explore; end
 
   def account
-    @presenter = present(current_user)
+    @presenter = current_user.present
   end
 
   private
