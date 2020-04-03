@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'explore', to: 'pages#explore', as: :explore
 
-  resources :posts, except: %i[index] do
+  resources :posts, except: %i[index edit update] do
     resources :likes, only: %i[create]
     resources :comments, only: %i[index create]
   end
