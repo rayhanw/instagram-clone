@@ -1,5 +1,5 @@
 <% if user.avatar.attached? %>
-  <%= cl_image_tag user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "avatar-small object-cover" %>
+  <%= cl_image_tag user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "#{avatar_class} object-cover" %>
 <% else %>
-  <%= image_tag "avatar.png", alttext: "placeholder avatar", class: "avatar-small" %>
+  <%= image_tag "avatar.png", alttext: "placeholder avatar", class: avatar_class %>
 <% end %>
