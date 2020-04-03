@@ -20,7 +20,7 @@
     <% end %>
   </li>
   <li class="self-center">
-    <%= link_to account_path, class: "text-black" do %>
+    <%= link_to user_path(current_user.username), class: "text-black" do %>
       <% if user_signed_in? && current_user.avatar.attached? %>
         <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
       <% else %>
