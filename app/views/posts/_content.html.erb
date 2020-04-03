@@ -2,7 +2,7 @@
   <!-- Headers -->
   <header class="flex p-3 justify-between items-center">
     <div class="flex cursor-pointer items-center">
-      <%= render partial: 'shared/avatar', locals: { user: post.user } %>
+      <%= render partial: 'shared/avatar', locals: { user: post.user, avatar_class: "avatar-small" } %>
 
       <%= link_to post.user.username, user_path(post.user), class: "ml-3 font-bold" %>
     </div>
