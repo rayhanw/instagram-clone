@@ -20,11 +20,13 @@
     <% end %>
   </li>
   <li class="self-center">
-    <%= link_to user_path(current_user.username), class: "text-black" do %>
-      <% if user_signed_in? && current_user.avatar.attached? %>
-        <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
-      <% else %>
-        <i class="material-icons">person</i>
+    <% if user_signed_in? %>
+      <%= link_to user_path(current_user.username), class: "text-black" do %>
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
+        <% else %>
+          <i class="material-icons">person</i>
+        <% end %>
       <% end %>
     <% end %>
   </li>
