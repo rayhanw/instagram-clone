@@ -1,0 +1,9 @@
+Description:
+    Stubs out a presenter object for a specific controller action.
+
+Example:
+    rails g presenter pages home
+
+    This will create:
+        app/presenters/pages
+        app/presenters/pages/home_presenter.rb
