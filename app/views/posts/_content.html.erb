@@ -2,11 +2,7 @@
   <!-- Headers -->
   <header class="flex p-3 justify-between items-center">
     <div class="flex cursor-pointer items-center">
-      <% if post.user.avatar.attached? %>
-        <%= cl_image_tag post.user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "avatar-small object-cover" %>
-      <% else %>
-        <%= image_tag "avatar.png", alttext: "placeholder avatar", class: "avatar-small" %>
-      <% end %>
+      <%= render partial: 'shared/avatar', locals: { user: post.user } %>
 
       <%= link_to post.user.username, user_path(post.user), class: "ml-3 font-bold" %>
     </div>
