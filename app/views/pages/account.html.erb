@@ -1,7 +1,9 @@
 <header class="bg-white px-4 pb-4">
   <section class="flex justify-between items-center py-2">
     <h2 class="font-bold"><%= @presenter.user.username %></h2>
-    <button>Burger here</button>
+    <button>
+      <%= inline_svg_tag 'burger.svg' %>
+    </button>
   </section>
 
   <section class="flex">
@@ -30,3 +32,12 @@
     <p class="leading-tight"><%= @presenter.user.website %></p>
   </section>
 </header>
+<main>
+  <div class="grid grid-cols-3">
+    <% @presenter.posts.each do |post| %>
+      <% if post.photos.attached? %>
+        <div class="bg-cover" style="height: 140px; width: 140px; background-image: url('<%= cl_image_path post.photos[0].key, crop: :fit, width: 300, height: 300 %>')"></div>
+      <% end %>
+    <% end %>
+  </div>
+</main>
