@@ -12,10 +12,10 @@ class User < ApplicationRecord
   end
 
   has_one_attached :avatar
-  has_many :posts
-  has_many :likes
-  has_many :direct_messages
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :direct_messages, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
   validates :name, presence: true
