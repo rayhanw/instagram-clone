@@ -29,14 +29,14 @@
   <section class="mt-4">
     <h4 class="font-bold leading-tight"><%= @presenter.user.name.capitalize %></h4>
     <p class="leading-tight text-sm"><%= @presenter.user.bio %></p>
-    <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer" %>
+    <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer noopener" %>
   </section>
 </header>
 <main>
   <div class="grid grid-cols-3">
     <% @presenter.posts.each do |post| %>
       <% if post.photos.attached? %>
-        <div class="bg-cover" style="height: 140px; width: 140px; background-image: url('<%= cl_image_path post.photos[0].key, crop: :fit, width: 300, height: 300 %>')"></div>
+        <div class="bg-cover mb-1" style="height: 140px; width: 140px; background-image: url('<%= cl_image_path post.photos[0].key, crop: :fit, width: 300, height: 300 %>')"></div>
       <% end %>
     <% end %>
   </div>
