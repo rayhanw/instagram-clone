@@ -4,7 +4,7 @@
     <div class="flex cursor-pointer items-center">
       <%= render partial: 'shared/avatar', locals: { user: post.user, avatar_class: "avatar-small" } %>
 
-      <%= link_to post.user.username, user_path(post.user), class: "ml-3 font-bold" %>
+      <%= link_to post.user.username, user_path(post.user.username), class: "ml-3 font-bold" %>
     </div>
     <i class="material-icons cursor-pointer">more_vert</i>
   </header>
