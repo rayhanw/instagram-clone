@@ -19,8 +19,8 @@
       <i class="material-icons">favorite</i>
     <% end %>
   </li>
-  <li class="self-center">
-    <% if user_signed_in? %>
+  <% if user_signed_in? %>
+    <li class="self-center">
       <%= link_to user_path(current_user.username), class: "text-black" do %>
         <% if current_user.avatar.attached? %>
           <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
@@ -28,6 +28,6 @@
           <i class="material-icons">person</i>
         <% end %>
       <% end %>
-    <% end %>
-  </li>
+    </li>
+  <% end %>
 </ul>
