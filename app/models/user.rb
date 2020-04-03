@@ -14,8 +14,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :direct_messages, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :direct_messages, dependent: :destroy, foreign_key: "sender_id"
+  has_many :messages, through: :direct_messages
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
   validates :name, presence: true
