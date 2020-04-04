@@ -19,10 +19,6 @@ class Post < ApplicationRecord
     likes.find_by(attributes)
   end
 
-  def liked_by_user?(user)
-    likes.includes(:user).map(&:user).include? user
-  end
-
   def any_likes?
     @any_likes ||= likes.any?
   end

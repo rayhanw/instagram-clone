@@ -16,9 +16,9 @@
   <div class="mx-4">
     <section class="flex py-4">
       <div id="like-cta-<%= post.id %>">
-        <% if post.liked_by_user? current_user %>
+        <% like ||= post.find_like(user: current_user, post: post) %>
+        <% if like %>
           <!-- Action to DESTROY like -->
-          <% like ||= post.find_like(user: current_user, post: post) %>
           <%= render partial: 'likes/destroy', locals: { like: like } %>
         <% else %>
           <!-- Action to CREATE like -->
