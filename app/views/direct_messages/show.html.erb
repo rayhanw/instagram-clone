@@ -15,8 +15,11 @@
   </div>
 </div>
 
-<main>
-  <% @presenter.messages.each do |message| %>
-    <p><%= message.content %></p>
-  <% end %>
+<main class="px-4">
+  <div id="messages">
+    <% @presenter.messages.each do |message| %>
+      <p><%= message.content %></p>
+    <% end %>
+  </div>
+  <%= render partial: 'messages/form', locals: { direct_message: @presenter.direct_message, message: @presenter.new_message } %>
 </main>
