@@ -1,2 +1,15 @@
-<h1>DirectMessages#show</h1>
-<p>Find me in app/views/direct_messages/show.html.erb</p>
+<div class="flex items-center bg-white border-b-2 justify-between p-2 sticky top-0">
+  <div class="flex items-center">
+    <%= link_to direct_messages_path do %>
+      <%= inline_svg_tag 'arrow.svg', class: "left-arrow" %>
+    <% end %>
+
+    <div class="ml-4 flex items-center">
+      <%= render partial: 'shared/avatar', locals: { avatar_class: "avatar-small", is_link: true, user: @presenter.other_person } %>
+      <div class="flex flex-col items-start ml-4">
+        <h4 class="font-bold"><%= @presenter.other_person_username %></h4>
+        <p class="text-sm text-gray-500"><%= @presenter.other_person_name %></p>
+      </div>
+    </div>
+  </div>
+</div>
