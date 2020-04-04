@@ -16,10 +16,11 @@
 </div>
 
 <main class="px-4">
-  <div id="messages">
+  <div id="messages" class="flex flex-col mt-4 overflow-y-scroll">
     <% @presenter.messages.each do |message| %>
-      <p><%= message.content %></p>
+      <%= render partial: 'messages/content', locals: { message: message, right: message.author == current_user } %>
     <% end %>
   </div>
-  <%= render partial: 'messages/form', locals: { direct_message: @presenter.direct_message, message: @presenter.new_message } %>
 </main>
+
+<%= render partial: 'messages/form', locals: { direct_message: @presenter.direct_message, message: @presenter.new_message } %>
