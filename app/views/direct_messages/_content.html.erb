@@ -3,7 +3,9 @@
     <%= render partial: "shared/avatar", locals: { avatar_class: "avatar", user: other_person, is_link: false } %>
     <div class="ml-4">
       <h4 class="font-bold"><%= other_person.username %></h4>
-      <p class="text-sm"><span class="font-bold"><%= direct_message.latest_message.content %></span> • <span class="text-xs italic"><%= time_ago_in_words(direct_message.latest_message.created_at) %> ago</span></p>
+      <% if direct_message.any_message? %>
+        <p class="text-sm"><span class="font-bold"><%= direct_message.latest_message_content %></span> • <span class="text-xs italic"><%= time_ago_in_words(direct_message.latest_message_created_at) %> ago</span></p>
+      <% end %>
     </div>
   </div>
   <%= inline_svg_tag('right_arrow.svg') %>
