@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show], param: :username
 
-  resources :direct_messages, only: %i[index show]
+  resources :direct_messages, only: %i[index show] do
+    resources :messages, only: :create
+  end
 end
