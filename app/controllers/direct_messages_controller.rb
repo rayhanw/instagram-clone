@@ -5,5 +5,6 @@ class DirectMessagesController < ApplicationController
 
   def show
     @direct_message = DirectMessage.find(params[:id])
+    @presenter = present(@direct_message)
   end
 end
