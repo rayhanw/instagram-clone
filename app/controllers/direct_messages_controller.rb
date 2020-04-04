@@ -4,5 +4,6 @@ class DirectMessagesController < ApplicationController
   end
 
   def show
+    @direct_message = DirectMessage.find(params[:id])
   end
 end
