@@ -1,6 +1,6 @@
 class DirectMessagesController < ApplicationController
   def index
-    @presenter = present(current_user)
+    @presenter = current_user.present
   end
 
   def show
