@@ -15,7 +15,15 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :direct_messages, dependent: :destroy, foreign_key: "sender_id"
+
+  def direct_messages
+    @direct_messages ||= DirectMessage.where('sender_id = :id OR receiver_id = :id', id: id)
+  end
+
+  def messages
+    @messages ||= Message.where(direct_message: direct_messages)
+  end
+
   has_many :messages, through: :direct_messages
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
