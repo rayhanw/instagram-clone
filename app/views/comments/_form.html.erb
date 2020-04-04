@@ -3,7 +3,7 @@
     <% if current_user.avatar.attached? %>
       <%= cl_image_tag current_user.avatar.key, alttext: "avatar", class: "avatar-small" %>
     <% else %>
-      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
+      <%= image_tag "avatar.png", alttext: "placeholder avatar", class: "avatar-small" %>
     <% end %>
 
     <%= f.input :content, label: false, input_html: { placeholder: "Add a comment...", rows: 1, class: "w-full", data: { target: "autofocus.contentInput" } }, wrapper_html: { class: "w-80 px-3 flex-grow" } %>
