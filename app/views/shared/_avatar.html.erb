@@ -1,4 +1,12 @@
-<%= link_to user_path(user.username) do %>
+<% if is_link %>
+  <%= link_to user_path(user.username) do %>
+    <% if user.avatar.attached? %>
+      <%= cl_image_tag user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "#{avatar_class} object-cover" %>
+    <% else %>
+      <%= image_tag "avatar.png", alttext: "placeholder avatar", class: avatar_class %>
+    <% end %>
+  <% end %>
+<% else %>
   <% if user.avatar.attached? %>
     <%= cl_image_tag user.avatar.key, crop: :fill, gravity: :face, alt: "avatar", class: "#{avatar_class} object-cover" %>
   <% else %>
