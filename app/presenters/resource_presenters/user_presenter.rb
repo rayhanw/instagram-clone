@@ -12,6 +12,10 @@ module ResourcePresenters
       @posts ||= user.posts.with_photo_blobs
     end
 
+    def direct_messages
+      @direct_messages ||= user.direct_messages
+    end
+
     def posts_count
       @posts_count ||= user.posts.count
     end
