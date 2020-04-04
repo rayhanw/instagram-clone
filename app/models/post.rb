@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   end
 
   def liked_by_user?(user)
-    likes.map(&:user).include? user
+    likes.includes(:user).map(&:user).include? user
   end
 
   def any_likes?
