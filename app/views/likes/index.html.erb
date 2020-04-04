@@ -5,7 +5,7 @@
     <% @presenter.likes.each do |like| %>
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <%= render partial: "shared/avatar", locals: { user: like.user, avatar_class: "avatar-large" } %>
+          <%= render partial: "shared/avatar", locals: { user: like.user, avatar_class: "avatar-large", is_link: true } %>
           <%= link_to user_path(like.user.username) do %>
             <div class="ml-4">
               <h4 class="font-bold"><%= like.user.username %></h4>
