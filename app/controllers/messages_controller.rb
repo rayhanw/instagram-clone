@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.author = current_user
 
     if @message.save
-      redirect_to direct_message_path(@direct_message)
+      redirect_to direct_message_path @direct_message, anchor: "message-#{@message.id}"
     else
       render 'direct_messages/show'
     end
