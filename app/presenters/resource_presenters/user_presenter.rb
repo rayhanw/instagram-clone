@@ -13,7 +13,7 @@ module ResourcePresenters
     end
 
     def direct_messages
-      @direct_messages ||= user.direct_messages
+      @direct_messages ||= user.direct_messages.with_users_avatar
     end
 
     def posts_count
