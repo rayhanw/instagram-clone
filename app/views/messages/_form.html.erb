@@ -1,0 +1,7 @@
+<%= simple_form_for [direct_message, message], html: { class: "border-2 border-black px-2 rounded-full flex" } do |f| %>
+  <%= f.input :content, label: false,
+              input_html: { placeholder: "Message...", rows: 1, class: "bg-light-gray w-full py-3 rounded-sm" },
+              wrapper_html: { class: "w-80 px-3 flex-grow" } %>
+
+  <%= f.submit "Post", class: "text-blue-400 bg-transparent" %>
+<% end %>
