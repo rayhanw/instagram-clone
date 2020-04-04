@@ -15,8 +15,8 @@
   </div>
 </div>
 
-<main class="px-4" data-controller="alert" data-target="alert.container">
-  <div id="messages" class="flex flex-col mt-4 overflow-y-scroll" data-direct-message-id="<%= @presenter.direct_message.id %>">
+<main class="px-4" data-controller="alert">
+  <div id="messages" class="flex flex-col mt-4 overflow-y-scroll" data-direct-message-id="<%= @presenter.direct_message.id %>" data-target="alert.container">
     <% @presenter.messages.each do |message| %>
       <%= render partial: 'messages/content', locals: { message: message, right: message.author == current_user } %>
     <% end %>
