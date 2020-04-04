@@ -15,8 +15,12 @@
   </div>
 </div>
 
-<main class="px-4">
-  <div id="messages" class="flex flex-col mt-4 overflow-y-scroll">
+<main class="px-4 relative">
+  <div id="new-message-alert" class="hidden absolute inline bg-white rounded-full px-3 py-2 text-sm text-gray-500 cursor-pointer">
+    New message below!
+  </div>
+
+  <div id="messages" class="flex flex-col mt-4 overflow-y-scroll" data-direct-message-id="<%= @presenter.direct_message.id %>">
     <% @presenter.messages.each do |message| %>
       <%= render partial: 'messages/content', locals: { message: message, right: message.author == current_user } %>
     <% end %>
