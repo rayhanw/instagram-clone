@@ -5,7 +5,9 @@ class DirectMessage < ApplicationRecord
 
   validates :sender, uniqueness: { scope: :receiver }
 
-  scope :with_users_avatar, -> { includes(:sender, receiver: [avatar_attachment: :blob] )}
+  %i[sender receiver].each do |author|
+    scope :"with_#{author}_avatar", -> { includes("#{author}": [avatar_attachment: :blob]) }
+  end
 
   def other_person(current_user)
     @other_person ||= if sender == current_user
