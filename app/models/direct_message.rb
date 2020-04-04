@@ -5,6 +5,8 @@ class DirectMessage < ApplicationRecord
 
   validates :sender, uniqueness: { scope: :receiver }
 
+  scope :with_users_avatar, -> { includes(:sender, receiver: [avatar_attachment: :blob] )}
+
   def other_person(current_user)
     @other_person ||= if sender == current_user
                         receiver
@@ -13,7 +15,20 @@ class DirectMessage < ApplicationRecord
                       end
   end
 
+  def any_message?
+    # Excuse me WTF `bullet`?
+    messages.includes(:messages).any?
+  end
+
   def latest_message
-    @latest_message ||= messages.last
+    @latest_message ||= messages&.last
+  end
+
+  def latest_message_content
+    @latest_message_content ||= latest_message&.content
+  end
+
+  def latest_message_created_at
+    @latest_message_created_at ||= latest_message&.created_at
   end
 end
