@@ -33,6 +33,6 @@
     <div class="container h-screen-bottom-nav overflow-y-scroll" data-target="scroll-top.container">
       <%= yield %>
     </div>
-    <%= render partial: 'shared/bottom_nav' %>
+    <%= render partial: 'shared/bottom_nav' unless controller_name == 'direct_messages' && action_name == 'show' %>
   </body>
 </html>
