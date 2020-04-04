@@ -14,14 +14,14 @@ const postController = {
     if (this.moreBtn && document.location.pathname === "/") {
       this.container.addEventListener("scroll", () => {
         if (
-          this.container.scrollTop + this.container.clientHeight >=
+          this.container.scrollTop + this.container.clientHeight + 2 >=
           this.container.scrollHeight
         ) {
           this.moreBtn.click();
         }
       });
     }
-  }
+  },
 };
 
 postController.attachInfiniteScroll();
