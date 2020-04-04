@@ -4,4 +4,16 @@ class DirectMessage < ApplicationRecord
   has_many :messages
 
   validates :sender, uniqueness: { scope: :receiver }
+
+  def other_person(current_user)
+    @other_person ||= if sender == current_user
+                        receiver
+                      else
+                        sender
+                      end
+  end
+
+  def latest_message
+    @latest_message ||= messages.last
+  end
 end
