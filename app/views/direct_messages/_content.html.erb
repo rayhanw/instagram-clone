@@ -1,7 +1,10 @@
-<%= link_to direct_message_path(direct_message), class: "flex items-center mt-4" do %>
-  <%= render partial: "shared/avatar", locals: { avatar_class: "avatar", user: other_person, is_link: false } %>
-  <div class="flex flex-col ml-4">
-    <h4 class="font-bold"><%= other_person.username %></h4>
-    <p class="text-sm"><span class="font-bold"><%= direct_message.latest_message.content %></span> • <span class="text-xs italic"><%= time_ago_in_words(direct_message.latest_message.created_at) %> ago</span></p>
+<%= link_to direct_message_path(direct_message), class: "flex items-center justify-between mt-4" do %>
+  <div class="flex">
+    <%= render partial: "shared/avatar", locals: { avatar_class: "avatar", user: other_person, is_link: false } %>
+    <div class="ml-4">
+      <h4 class="font-bold"><%= other_person.username %></h4>
+      <p class="text-sm"><span class="font-bold"><%= direct_message.latest_message.content %></span> • <span class="text-xs italic"><%= time_ago_in_words(direct_message.latest_message.created_at) %> ago</span></p>
+    </div>
   </div>
+  <%= inline_svg_tag('right_arrow.svg') %>
 <% end %>
