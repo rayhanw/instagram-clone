@@ -3,7 +3,7 @@
 <div class="mx-3 mt-4">
   <div>
     <% @presenter.likes.each do |like| %>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between mb-4">
         <div class="flex items-center">
           <%= render partial: "shared/avatar", locals: { user: like.user, avatar_class: "avatar-large", is_link: true } %>
           <%= link_to user_path(like.user.username) do %>
