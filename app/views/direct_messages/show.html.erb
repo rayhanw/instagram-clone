@@ -15,14 +15,14 @@
   </div>
 </div>
 
-<main class="px-4 relative">
+<main class="px-4" data-controller="alert" data-target="alert.container">
   <div id="messages" class="flex flex-col mt-4 overflow-y-scroll" data-direct-message-id="<%= @presenter.direct_message.id %>">
     <% @presenter.messages.each do |message| %>
       <%= render partial: 'messages/content', locals: { message: message, right: message.author == current_user } %>
     <% end %>
   </div>
 
-  <div id="new-message-alert" class="hidden absolute bottom-0 inline bg-white rounded-full px-3 py-2 text-sm text-gray-500 cursor-pointer mb-16 shadow-md">
+  <div id="new-message-alert" class="hidden sticky inline bg-white rounded-full px-3 py-2 text-sm text-gray-500 cursor-pointer mb-16 shadow-md" data-action="click->alert#close" style="bottom: 1rem;">
     New message below!
   </div>
 </main>
