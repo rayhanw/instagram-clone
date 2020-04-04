@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Instagram Clone made off of Ruby on Rails
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.6.6
 
-* System dependencies
+* Database creation & initialization: `rails db:prepare` or `rails db:create db:migrate db:seed`
 
-* Configuration
+* How to run the test suite: `rspec` or `bundle exec rspec`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Deployment: `Heroku`
