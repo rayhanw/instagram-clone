@@ -38,7 +38,7 @@
     <button class="transition-all duration-200 bg-white px-4 py-2 w-full border-b-2 border-black" data-name="posts" data-action="click->tabs#change" data-target="tabs.postToggler">
       <i class="material-icons">apps</i>
     </button>
-    <button class="transition-all duration-200 bg-white px-4 py-2 w-full" data-name="activities" data-action="click->tabs#change" data-target="tabs.activityToggler">
+    <button class="transition-all duration-200 bg-white px-4 py-2 w-full" data-name="activities" data-controller="fetch" data-action="click->tabs#change click->fetch#retrievectivities" data-target="tabs.activityToggler">
       <i class="material-icons">face</i>
     </button>
   </div>
@@ -56,6 +56,12 @@
 
   <!-- Other content -->
   <section class="grid grid-cols-3 hidden" data-target="tabs.activityContainer">
-    <h1 class="text-4xl">Hi there!</h1>
+    <% @presenter.feed.each do |feed| %>
+      <% if feed.post.photos.attached? %>
+        <%= link_to post_path(feed.post) do %>
+          <div class="bg-cover mb-1" style="height: 140px; width: 140px; background-image: url('<%= cl_image_path feed.post.photos[0].key, crop: :fit, width: 300, height: 300 %>')"></div>
+        <% end %>
+      <% end %>
+    <% end %>
   </section>
 </main>
