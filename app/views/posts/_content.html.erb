@@ -10,7 +10,17 @@
   </header>
 
   <!-- Image -->
-  <div class="w-full bg-cover" style="min-height: 300px; background-image: url('<%= cl_image_path post.first_photo, crop: :fit %> ')"></div>
+  <% if post.photos.attached? %>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% post.photos.each do |photo| %>
+          <div class="w-full bg-cover swiper-slide" style="min-height: 300px; background-image: url('<%= cl_image_path photo.key, crop: :fill, aspect_ratio: '4:3' %> ')"></div>
+        <% end %>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  <% end %>
 
   <!-- CTAs -->
   <div class="mx-4">
