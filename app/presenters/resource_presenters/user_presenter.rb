@@ -28,8 +28,8 @@ module ResourcePresenters
       @posts_count ||= user.posts.count
     end
 
-    def feed
-      @feed ||= comments.includes(post: [:photos_attachments]) + likes.includes(post: [:photos_attachments])
+    def bookmarks
+      @bookmarks ||= user.bookmarks.with_post_photos
     end
   end
 end
