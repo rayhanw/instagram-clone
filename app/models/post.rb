@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   has_many_attached :photos
 
@@ -17,6 +18,10 @@ class Post < ApplicationRecord
 
   def find_like(attributes = {})
     likes.find_by(attributes)
+  end
+
+  def find_bookmark(attributes = {})
+    bookmarks.find_by(attributes)
   end
 
   def any_likes?

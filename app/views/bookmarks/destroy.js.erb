@@ -1,0 +1,7 @@
+function changeContent(innerHTML) {
+  const bookmarkWrapper = document.getElementById('bookmark-cta-<%= @bookmark.post.id %>');
+
+  bookmarkWrapper.innerHTML = innerHTML
+}
+
+changeContent("<%= j render 'create', post: @bookmark.post %>")

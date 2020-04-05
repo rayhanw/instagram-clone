@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   def direct_messages
     @direct_messages ||= DirectMessage.where('sender_id = :id OR receiver_id = :id', id: id)
