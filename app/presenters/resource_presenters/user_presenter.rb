@@ -1,11 +1,19 @@
 module ResourcePresenters
   class UserPresenter < ResourcePresenters::ResourcePresenterBase
+    def comments
+      @comments ||= user.comments
+    end
+
+    def likes
+      @likes ||= user.likes
+    end
+
     def comments_count
-      @comments_count ||= user.comments.count
+      @comments_count ||= comments.count
     end
 
     def likes_count
-      @likes_count ||= user.likes.count
+      @likes_count ||= likes.count
     end
 
     def posts
@@ -18,6 +26,10 @@ module ResourcePresenters
 
     def posts_count
       @posts_count ||= user.posts.count
+    end
+
+    def feed
+      @feed ||= comments.includes(post: [:photos_attachments]) + likes.includes(post: [:photos_attachments])
     end
   end
 end
