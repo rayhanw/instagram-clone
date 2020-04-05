@@ -32,8 +32,19 @@
     <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer noopener" %>
   </section>
 </header>
-<main>
-  <div class="grid grid-cols-3">
+<main data-controller="tabs">
+  <!-- Tabs -->
+  <div class="flex items-center mb-1">
+    <button class="transition-all duration-200 bg-white px-4 py-2 w-full border-b-2 border-black" data-name="posts" data-action="click->tabs#change" data-target="tabs.postToggler">
+      <i class="material-icons">apps</i>
+    </button>
+    <button class="transition-all duration-200 bg-white px-4 py-2 w-full" data-name="activities" data-action="click->tabs#change" data-target="tabs.activityToggler">
+      <i class="material-icons">face</i>
+    </button>
+  </div>
+
+  <!-- Posts Content -->
+  <section class="grid grid-cols-3" data-target="tabs.postContainer">
     <% @presenter.posts.each do |post| %>
       <% if post.photos.attached? %>
         <%= link_to post_path(post) do %>
@@ -41,5 +52,10 @@
         <% end %>
       <% end %>
     <% end %>
-  </div>
+  </section>
+
+  <!-- Other content -->
+  <section class="grid grid-cols-3 hidden" data-target="tabs.activityContainer">
+    <h1 class="text-4xl">Hi there!</h1>
+  </section>
 </main>
