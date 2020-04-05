@@ -34,12 +34,14 @@
         <i class="material-icons">send</i>
       </button>
 
-      <% bookmark ||= post.find_bookmark(user: current_user, post: post) %>
-      <% if bookmark %>
-        <%= render partial: 'bookmarks/destroy', locals: { bookmark: bookmark } %>
-      <% else %>
-        <%= render partial: 'bookmarks/create', locals: { post: post } %>
-      <% end %>
+      <div id="bookmark-cta-<%= post.id %>">
+        <% bookmark ||= post.find_bookmark(user: current_user, post: post) %>
+        <% if bookmark %>
+          <%= render partial: 'bookmarks/destroy', locals: { bookmark: bookmark } %>
+        <% else %>
+          <%= render partial: 'bookmarks/create', locals: { post: post } %>
+        <% end %>
+      </div>
     </section>
 
     <!-- Number of likes -->
