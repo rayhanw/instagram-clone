@@ -5,8 +5,8 @@ const swiperContainers = document.querySelectorAll(".swiper-container");
 
 swiperContainers.forEach(container => {
   const options = {
-    scrollBar: {
-      el: ".swiper-scrollbar"
+    pagination: {
+      el: ".swiper-pagination"
     }
   };
 
