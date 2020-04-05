@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message.author = current_user
 
     if @message.save
-      DirectMessagesChannel.broadcast_to(@direct_message, render_to_string(partial: "content", locals: { message: @message, right: true }))
+      DirectMessagesChannel.broadcast_to(@direct_message, render_to_string(partial: "content", locals: { message: @message, right: false }))
       redirect_to direct_message_path @direct_message, anchor: "message-#{@message.id}"
     else
       render 'direct_messages/show'
