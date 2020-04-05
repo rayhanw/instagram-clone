@@ -11,6 +11,12 @@ class User < ApplicationRecord
     @login || username || email
   end
 
+  def not_conversed_with
+    ids = direct_messages.pluck(:receiver_id, :sender_id).flatten.uniq
+
+    User.where.not(id: ids)
+  end
+
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
