@@ -1,5 +1,4 @@
 import Swiper from "swiper";
-import "swiper/css/swiper.min.css";
 
 const swiperContainers = document.querySelectorAll(".swiper-container");
 
