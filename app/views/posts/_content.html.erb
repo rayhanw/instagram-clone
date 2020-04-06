@@ -6,7 +6,17 @@
 
       <%= link_to post.user.username, user_path(post.user.username), class: "ml-3 font-bold" %>
     </div>
-    <i class="material-icons cursor-pointer">more_vert</i>
+    <div data-controller="dropdown" class="relative">
+      <button data-action="click->dropdown#toggle" data-post-id="<%= post.id %>">
+        <i class="material-icons cursor-pointer">more_vert</i>
+      </button>
+
+      <div class="rounded-sm border-black border p-2 hidden bg-white absolute right-0 z-50" data-target="dropdown.menu" data-id="<%= post.id %>" style="width: 120px;">
+        <button class="pb-1" data-action="click->share-post#copy" data-link="<%= post.present.share_link(request.base_url) %>">Copy Link</button>
+        <hr />
+        <%= link_to "Delete post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "text-red-600 pt-1" %>
+      </div>
+    </div>
   </header>
 
   <!-- Image -->
