@@ -9,7 +9,7 @@ class User < ApplicationRecord
   attr_writer :login
 
   algoliasearch do
-    attribute :username, :name, :bio, :website
+    attribute :username, :name
     add_attribute :avatar_url
   end
 
