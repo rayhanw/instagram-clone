@@ -8,7 +8,10 @@ class User < ApplicationRecord
 
   attr_writer :login
 
-  algoliasearch { attribute :username, :name, :bio, :website }
+  algoliasearch do
+    attribute :username, :name, :bio, :website
+    add_attribute :avatar_url
+  end
 
   def login
     @login || username || email
@@ -25,6 +28,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+
+  def avatar_url
+    if avatar.attached?
+      Cloudinary::Utils.cloudinary_url avatar&.key, crop: :fill, gravity: :face
+    end
+  end
 
   def direct_messages
     @direct_messages ||= DirectMessage.where('sender_id = :id OR receiver_id = :id', id: id)
