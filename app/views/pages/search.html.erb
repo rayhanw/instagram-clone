@@ -1,0 +1,21 @@
+<%= content_for :head do %>
+  <meta name="algolia-app-id" content="<%= ENV["ALGOLIA_APP_ID"] %>">
+  <meta name="algolia-search-only-api-key" content="<%= ENV["ALGOLIA_SEARCH_ONLY_API_KEY"] %>">
+<% end %>
+
+<div data-controller="algolia-autocomplete">
+  <div class="flex flex-grow">
+    <div class="w-full">
+      <div class="relative">
+        <span class="relative inline-block w-full shadow">
+          <%= link_to :back do %>
+            <i class="material-icons absolute text-xl z-50 text-gray-600" style="top: 8px; left: 8px;">arrow_back</i>
+          <% end %>
+          <input type="text" autofocus="true" id="algolia-search" class="relative bg-white w-full py-2 pr-4 pl-10 block" placeholder="Search" data-action="input->algolia-autocomplete#search" />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="users-container ml-4 pt-4"></div>

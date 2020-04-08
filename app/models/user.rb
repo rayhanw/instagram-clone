@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include AlgoliaSearch
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,6 +7,11 @@ class User < ApplicationRecord
          authentication_keys: [:login]
 
   attr_writer :login
+
+  algoliasearch do
+    attribute :username, :name
+    add_attribute :avatar_url
+  end
 
   def login
     @login || username || email
@@ -22,6 +28,14 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+
+  def avatar_url
+    if avatar.attached?
+      Cloudinary::Utils.cloudinary_url avatar&.key, crop: :fill, gravity: :face
+    else
+      ActionController::Base.helpers.asset_path 'avatar.png'
+    end
+  end
 
   def direct_messages
     @direct_messages ||= DirectMessage.where('sender_id = :id OR receiver_id = :id', id: id)
