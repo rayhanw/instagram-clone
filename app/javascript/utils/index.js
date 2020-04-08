@@ -1,4 +1,4 @@
-export const removeImageClasses = (image, newClass = "mb-6") => {
+export const removeImageClasses = (image, newClasses = "mb-6 w-full") => {
   image.className = "";
-  image.classList.add(newClass);
+  image.className = newClasses;
 };
