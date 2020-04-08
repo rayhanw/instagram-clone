@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include AlgoliaSearch
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,6 +7,8 @@ class User < ApplicationRecord
          authentication_keys: [:login]
 
   attr_writer :login
+
+  algoliasearch { attribute :username, :name, :bio, :website }
 
   def login
     @login || username || email
