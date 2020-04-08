@@ -1,0 +1,27 @@
+.orientation-2 {
+  transform: rotateY(180deg);
+}
+
+.orientation-3 {
+  transform: rotate(180deg);
+}
+
+.orientation-4 {
+  transform: rotateX(180deg);
+}
+
+.orientation-5 {
+  transform: rotate(90deg) scale(1, -1);
+}
+
+.orientation-6 {
+  transform: rotate(90deg);
+}
+
+.orientation-7 {
+  transform: rotate(-90deg) scale(1, -1);
+}
+
+.orientation-8 {
+  transform: rotate(-90deg);
+}
