@@ -7,6 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "piexifjs": "^1.0.6",
     "stimulus": "^1.1.1",
     "swiper": "^5.3.6",
     "tailwindcss": "^1.2.0",
