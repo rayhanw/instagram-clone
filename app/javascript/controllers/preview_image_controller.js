@@ -1,5 +1,6 @@
 import { Controller } from "stimulus";
 import { rotatePicture } from "../packs/plugins/init_exif";
+import { removeImageClasses } from "../utils";
 
 export default class extends Controller {
   static targets = ["image"];
@@ -11,6 +12,7 @@ export default class extends Controller {
 
       reader.onload = readerEvent => {
         this.imageTarget.src = readerEvent.currentTarget.result;
+        removeImageClasses(this.imageTarget);
         rotatePicture(this.imageTarget, readerEvent);
       };
 
