@@ -32,6 +32,8 @@ class User < ApplicationRecord
   def avatar_url
     if avatar.attached?
       Cloudinary::Utils.cloudinary_url avatar&.key, crop: :fill, gravity: :face
+    else
+      ActionController::Base.helpers.asset_path 'avatar.png'
     end
   end
 
