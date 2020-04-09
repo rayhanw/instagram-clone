@@ -12,7 +12,11 @@ export default class extends Controller {
 
       reader.onload = readerEvent => {
         this.imageTarget.src = readerEvent.currentTarget.result;
-        removeImageClasses(this.imageTarget);
+        if (!!event.target.dataset.signup) {
+          removeImageClasses(this.imageTarget, "avatar-xl mb-4 object-cover");
+        } else {
+          removeImageClasses(this.imageTarget);
+        }
         rotatePicture(this.imageTarget, readerEvent);
       };
 
