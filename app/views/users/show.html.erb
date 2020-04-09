@@ -26,10 +26,13 @@
     </div>
   </section>
 
-  <section class="mt-4">
+  <section class="mt-4 flex flex-col">
     <h4 class="font-bold leading-tight"><%= @presenter.user.name.capitalize %></h4>
     <p class="leading-tight text-sm"><%= @presenter.user.bio %></p>
     <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer noopener" %>
+    <% if current_user == @presenter.user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "mt-2 bg-purple hover:bg-purple-darker text-white font-bold py-1 text-center px-4 rounded duration-300" %>
+    <% end %>
   </section>
 </header>
 <main data-controller="tabs">
