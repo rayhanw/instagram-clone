@@ -1,6 +1,6 @@
 <h1 class="text-center text-3xl">Create a new post</h1>
 
-<%= simple_form_for @post, html: { data: { controller: "preview-image" }, class: "flex flex-col flex-wrap h-screen overflow-y-scroll" } do |f| %>
+<%= simple_form_for @post, html: { data: { controller: "preview-image" }, class: "flex flex-col h-screen overflow-y-scroll" } do |f| %>
   <div class="flex flex-wrap my-6 px-4">
     <%= f.input :photos, as: :file,
                 required: false,
