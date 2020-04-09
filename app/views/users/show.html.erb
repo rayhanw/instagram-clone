@@ -35,10 +35,10 @@
 <main data-controller="tabs">
   <!-- Tabs -->
   <div class="flex items-center mb-1">
-    <button class="transition-all duration-200 bg-white px-4 py-2 w-full border-b-2 border-black" data-name="posts" data-action="click->tabs#change" data-target="tabs.postToggler">
+    <button class="transition-all duration-200 bg-white px-4 py-2 w-full border-b-2 border-black focus:outline-none" data-name="posts" data-action="click->tabs#change" data-target="tabs.postToggler">
       <i class="material-icons">apps</i>
     </button>
-    <button class="transition-all duration-200 bg-white px-4 py-2 w-full" data-name="activities" data-controller="fetch" data-action="click->tabs#change click->fetch#retrievectivities" data-target="tabs.activityToggler">
+    <button class="transition-all duration-200 bg-white px-4 py-2 w-full focus:outline-none" data-name="activities" data-controller="fetch" data-action="click->tabs#change click->fetch#retrievectivities" data-target="tabs.activityToggler">
       <i class="material-icons">bookmarks</i>
     </button>
   </div>
