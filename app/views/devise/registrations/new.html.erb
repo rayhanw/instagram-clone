@@ -12,7 +12,7 @@
 
       <div class="flex flex-col items-center justify-center">
         <%= image_tag "avatar.png", alt: "avatar", class: "avatar-xl mb-4 object-cover", id: "preview-image", data: { target: "preview-image.image" } %>
-        <input accept="image/*" capture="user" class="file optional" type="file" name="user[avatar]" id="user_avatar" data-action="change->preview-image#preview" />
+        <input accept="image/*" capture="user" class="file optional" type="file" name="user[avatar]" id="user_avatar" data-action="change->preview-image#preview" data-signup="true" />
       </div>
     </div>
 
