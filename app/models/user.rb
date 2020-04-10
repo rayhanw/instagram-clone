@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def not_conversed_with
-    ids = direct_messages.pluck(:receiver_id, :sender_id).flatten.uniq
+    ids = [id, direct_messages.pluck(:receiver_id, :sender_id)].flatten.uniq
 
     User.where.not(id: ids)
   end
