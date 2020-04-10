@@ -19,7 +19,6 @@ class DirectMessage < ApplicationRecord
   end
 
   def any_message?
-    # Excuse me WTF `bullet`?
     messages.any?
   end
 
