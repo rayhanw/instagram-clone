@@ -8,6 +8,7 @@ class DirectMessage < ApplicationRecord
   %i[sender receiver].each do |author|
     scope :"with_#{author}_avatar", -> { includes("#{author}": [avatar_attachment: :blob]) }
   end
+  scope :by_latest_message, -> { includes(:messages).order('messages.created_at ASC') }
 
   def other_person(current_user)
     @other_person ||= if sender == current_user
@@ -19,7 +20,7 @@ class DirectMessage < ApplicationRecord
 
   def any_message?
     # Excuse me WTF `bullet`?
-    messages.includes(:messages).any?
+    messages.any?
   end
 
   def latest_message
