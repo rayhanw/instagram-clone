@@ -21,7 +21,11 @@ module ResourcePresenters
     end
 
     def direct_messages
-      @direct_messages ||= user.direct_messages.with_sender_avatar.with_receiver_avatar
+      @direct_messages ||= user.direct_messages
+    end
+
+    def direct_messages_snippet_with_avatar
+      @direct_messages_snippet ||= direct_messages.by_latest_message.with_sender_avatar.with_receiver_avatar
     end
 
     def posts_count
