@@ -18,10 +18,6 @@ class DirectMessage < ApplicationRecord
                       end
   end
 
-  def any_message?
-    messages.any?
-  end
-
   def latest_message
     @latest_message ||= messages&.last
   end
