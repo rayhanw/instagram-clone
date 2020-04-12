@@ -2,12 +2,11 @@
   <h2 class="text-2xl text-center my-4">Sign up</h2>
 
   <%= simple_form_for resource, url: registration_path(resource_name), html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4", data: { controller: "preview-image" } } do |f| %>
-    <div>
+    <div class="mb-4">
       <%= f.input :avatar,
                   as: :file,
                   input_html: { accept: "image/*", class: "hidden" },
                   label_html: { class: "block text-gray-700 text-sm font-bold mb-2" },
-                  wrapper_html: { class: "mb-4" },
                   error_html: { class: "text-red-500 text-xs italic" } %>
 
       <div class="flex flex-col items-center justify-center">
@@ -30,7 +29,7 @@
                 error_html: { class: "text-red-500 text-xs italic" },
                 placeholder: "bob347",
                 hint: "Letters and numbers only!",
-                hint_html: { class: "text-yellow-500 text-xs italic" },
+                hint_html: { class: "text-yellow-500 text-xs italic block" },
                 required: false %>
 
     <%= f.input :name,
@@ -69,8 +68,6 @@
                 placeholder: "***********" %>
 
     <%= f.submit "Create account", class: "duration-200 shadow bg-purple-darker hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded w-full" %>
-
-    <%= render "devise/shared/error_messages", resource: resource %>
   <% end %>
 
   <%= render "devise/shared/links" %>
