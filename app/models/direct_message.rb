@@ -19,7 +19,7 @@ class DirectMessage < ApplicationRecord
   end
 
   ## WARNING:
-  # This is not reusable,
+  # This is not *really* reusable,
   # because of the `scope` above to be reverse-ordered (i.e. first <=> last).
   # Do not use this elsewhere until a better solution is found.
   ## SMALL NOTE:
