@@ -15,7 +15,7 @@ module.exports = {
     fontFamily: {
       ...fontFamily,
       sans: "Montserrat, sans-serif",
-      body: ["Roboto"]
+      body: "Roboto, sans-serif"
     }
   },
   variants: {},
