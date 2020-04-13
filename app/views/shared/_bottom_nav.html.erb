@@ -23,7 +23,7 @@
     <li class="self-center">
       <%= link_to user_path(current_user.username), class: "text-black" do %>
         <% if current_user.avatar.attached? %>
-          <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, class: "avatar-xs") %>
+          <%= cl_image_tag(current_user.avatar.key, crop: :fill, gravity: :face, alt: "current-user-#{current_user.id}", class: "avatar-xs") %>
         <% else %>
           <i class="material-icons">person</i>
         <% end %>

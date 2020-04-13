@@ -1,9 +1,9 @@
 <%= simple_form_for [post, comment], remote: true, html: { class: "border-t-2 py-3", data: { controller: "autofocus" } } do |f| %>
   <div class="flex items-center justify-between">
     <% if current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, alttext: "avatar", class: "avatar-small" %>
+      <%= cl_image_tag current_user.avatar.key, alt: "avatar-#{current_user.id}", class: "avatar-small" %>
     <% else %>
-      <%= image_tag "avatar.png", alttext: "placeholder avatar", class: "avatar-small" %>
+      <%= image_tag "avatar.png", alt: "avatar-#{current_user.id}", class: "avatar-small" %>
     <% end %>
 
     <%= f.input :content, label: false, input_html: { placeholder: "Add a comment...", rows: 1, class: "bg-light-gray w-full py-3 rounded-sm", data: { target: "autofocus.contentInput" } }, wrapper_html: { class: "w-80 px-3 flex-grow" } %>

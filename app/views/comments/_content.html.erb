@@ -2,9 +2,9 @@
   <div class="mb-3 flex items-center">
     <%= link_to user_path(comment.user.username) do %>
       <% if comment.user.avatar.attached? %>
-        <%= cl_image_tag comment.user.avatar.key, alttext: "avatar", class: "avatar-small" %>
+        <%= cl_image_tag comment.user.avatar.key, alt: "avatar-#{comment.user.id}", class: "avatar-small" %>
       <% else %>
-        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alttext: "placeholder avatar", class: "avatar-small" %>
+        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png", alt: "avatar-#{comment.user.id}", class: "avatar-small" %>
       <% end %>
     <% end %>
 
