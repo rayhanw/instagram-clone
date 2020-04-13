@@ -2,7 +2,7 @@
   <div class="flex">
     <%= render partial: "shared/avatar", locals: { avatar_class: "avatar", user: other_person, is_link: false } %>
     <div class="ml-4">
-      <h4 class="font-bold"><%= other_person.username %></h4>
+      <h4 class="font-bold font-sans"><%= other_person.username %></h4>
       <% if direct_message.latest_message_reversed %>
         <p class="text-sm"><span class="font-bold"><%= direct_message.latest_message_reversed_content %></span> • <span class="text-xs italic"><%= time_ago_in_words(direct_message.latest_message_reversed_created_at) %> ago</span></p>
       <% end %>

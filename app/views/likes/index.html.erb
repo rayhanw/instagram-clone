@@ -8,7 +8,7 @@
           <%= render partial: "shared/avatar", locals: { user: like.user, avatar_class: "avatar-large", is_link: true } %>
           <%= link_to user_path(like.user.username) do %>
             <div class="ml-4">
-              <h4 class="font-bold"><%= like.user.username %></h4>
+              <h4 class="font-bold font-sans"><%= like.user.username %></h4>
               <span class="text-gray-700"><%= like.user&.name %></span>
             </div>
           <% end %>

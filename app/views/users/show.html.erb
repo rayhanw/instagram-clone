@@ -1,6 +1,6 @@
 <header class="bg-white px-4 pb-4 border-b-4 mb-1">
   <section class="flex justify-between items-center py-2 mb-4">
-    <h2 class="font-bold"><%= @presenter.user.username %></h2>
+    <h2 class="font-bold font-sans"><%= @presenter.user.username %></h2>
     <button>
       <%= inline_svg_tag 'burger.svg' %>
     </button>
@@ -12,22 +12,22 @@
     </div>
     <div class="flex flex-1 justify-between items-center">
       <div class="flex flex-col justify-center items-center mx-3">
-        <h4 class="font-bold"><%= @presenter.posts_count %></h4>
+        <h4 class="font-bold font-sans"><%= @presenter.posts_count %></h4>
         <span>Posts</span>
       </div>
       <div class="flex flex-col justify-center items-center mx-3">
-        <h4 class="font-bold"><%= @presenter.comments_count %></h4>
+        <h4 class="font-bold font-sans"><%= @presenter.comments_count %></h4>
         <span>Comments</span>
       </div>
       <div class="flex flex-col justify-center items-center mx-3">
-        <h4 class="font-bold"><%= @presenter.likes_count %></h4>
+        <h4 class="font-bold font-sans"><%= @presenter.likes_count %></h4>
         <span>Likes</span>
       </div>
     </div>
   </section>
 
   <section class="mt-4 flex flex-col">
-    <h4 class="font-bold leading-tight"><%= @presenter.user.name.capitalize %></h4>
+    <h4 class="font-bold font-sans leading-tight"><%= @presenter.user.name.capitalize %></h4>
     <p class="leading-tight text-sm"><%= @presenter.user.bio %></p>
     <%= link_to @presenter.user.website, @presenter.user.website, class: "leading-tight", rel: "noreferrer noopener" %>
     <% if current_user == @presenter.user %>

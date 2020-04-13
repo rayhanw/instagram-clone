@@ -13,7 +13,7 @@
 </div>
 
 <div class="mx-4 mt-4">
-  <h4 class="font-bold">Messages</h4>
+  <h4 class="font-bold font-sans">Messages</h4>
 
   <% @presenter.direct_messages_snippet_with_avatar.each do |dm| %>
     <%= render partial: 'content', locals: { direct_message: dm, other_person: dm.other_person(current_user) } %>

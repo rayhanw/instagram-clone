@@ -8,7 +8,7 @@
     <div class="ml-4 flex items-center">
       <%= render partial: 'shared/avatar', locals: { avatar_class: "avatar-small", is_link: true, user: @presenter.other_person } %>
       <div class="flex flex-col items-start ml-4">
-        <h4 class="font-bold"><%= @presenter.other_person_username %></h4>
+        <h4 class="font-bold font-sans"><%= @presenter.other_person_username %></h4>
         <p class="text-sm text-gray-500"><%= @presenter.other_person_name %></p>
       </div>
     </div>

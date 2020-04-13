@@ -6,7 +6,7 @@ const buildContent = ({ avatar_url, name, username }) => `
     <a class="flex items-center" href="/users/${username}">
       <img src="${avatar_url}" alt="avatar" class="avatar object-cover" />
       <div class="ml-3">
-        <h4 class="font-bold">${username}</h4>
+        <h4 class="font-bold font-sans">${username}</h4>
         <span class="text-gray-700">${name}</span>
       </div>
     </a>
