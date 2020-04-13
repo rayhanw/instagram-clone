@@ -1,4 +1,4 @@
-const { colors } = require("tailwindcss/defaultTheme");
+const { colors, fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   theme: {
@@ -11,6 +11,11 @@ module.exports = {
         lighter: "#d8b9c3"
       },
       "light-gray": "#EDF2F7"
+    },
+    fontFamily: {
+      ...fontFamily,
+      sans: "Montserrat, sans-serif",
+      body: ["Roboto"]
     }
   },
   variants: {},
