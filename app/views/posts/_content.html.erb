@@ -12,9 +12,9 @@
       </button>
 
       <div class="rounded-sm border-black border p-2 hidden bg-white absolute right-0 z-50" data-target="dropdown.menu" data-id="<%= post.id %>" style="width: 120px;">
-        <button class="pb-1" data-action="click->share-post#copy" data-link="<%= post.present.share_link(request.base_url) %>">Copy Link</button>
-        <hr />
+        <button data-action="click->share-post#copy" data-link="<%= post.present.share_link(request.base_url) %>">Copy Link</button>
         <% if current_user == post.user %>
+          <hr />
           <%= link_to "Delete post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "text-red-600 pt-1" %>
         <% end %>
       </div>
