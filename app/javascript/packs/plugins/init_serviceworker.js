@@ -2,7 +2,7 @@ export default () => {
   if (navigator.serviceWorker) {
     navigator.serviceWorker
       .register("/serviceworker.js", { scope: "./" })
-      .then(function(reg) {
+      .then(() => {
         console.log("[Companion]", "Service worker registered!");
       });
   }
