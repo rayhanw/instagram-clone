@@ -3,7 +3,7 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["menu"];
 
-  toggle = ({ currentTarget }) => {
+  toggle = () => {
     this.menuTarget.classList.toggle("hidden");
   };
 }
