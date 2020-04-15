@@ -1,7 +1,7 @@
 <header class="bg-white px-4 pb-4 border-b-4 mb-1">
   <section class="flex justify-between items-center py-2 mb-4 relative" data-controller="dropdown">
     <h2 class="font-bold font-sans"><%= @presenter.user.username %></h2>
-    <button data-action="click->dropdown#toggle">
+    <button class="focus:outline-none" data-action="click->dropdown#toggle">
       <%= inline_svg_tag "burger.svg" %>
     </button>
 
