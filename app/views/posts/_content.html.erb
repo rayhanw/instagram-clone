@@ -26,7 +26,12 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <% post.photos.each do |photo| %>
-          <div class="w-full bg-cover swiper-slide" style="min-height: 300px; background-image: url('<%= cl_image_path photo.key, crop: :fill, aspect_ratio: '4:3' %> ')"></div>
+          <% if is_type_image?(photo.content_type) %>
+            <div class="w-full bg-cover swiper-slide" style="min-height: 300px; background-image: url('<%= cl_image_path photo.key, crop: :fill, aspect_ratio: '4:3' %> ')"></div>
+          <% else %>
+            <%= cl_video_tag photo.key, controls: true,
+                aspect_ratio: '4:3', class: "swiper-slide" %>
+          <% end %>
         <% end %>
       </div>
 
