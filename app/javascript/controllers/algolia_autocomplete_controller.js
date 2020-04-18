@@ -25,6 +25,8 @@ export default class extends Controller {
   }
 
   async search(event) {
+    if (!event.target.value || !/\S/.test(event.target.value)) return;
+
     const response = await this.index.search(event.currentTarget.value);
     const cardContents = response.hits.map(buildContent);
 
