@@ -8,4 +8,4 @@ An Instagram Clone made off of Ruby on Rails
 
 * How to run the test suite: `rspec` or `bundle exec rspec`
 
-* Deployment: `Heroku`
+* Deployment: `Heroku` => [URL](https://clone-stagram-w.herokuapp.com)
